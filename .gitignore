@@ -1,3 +1,6 @@
+# Liquibase config files
+liquibase.properties
+
 # Compiled class file
 *.class
 
