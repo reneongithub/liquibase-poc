@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ../engine
+liquibase --changeLogFile="../data/changelogs/cl.restorecollection.xml" update

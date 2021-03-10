@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ../engine
+liquibase --diffTypes=tables,functions,views,columns,indexes,foreignkeys,primarykeys,uniqueconstraints,data,storedprocedure,triggers,sequences --changeLogFile="../data/backup_restore/cl.masterbackup.xml" --dataOutputDirectory="../data/backup_restore" generateChangeLog
