@@ -1,4 +1,15 @@
 #!/bin/sh
 
-cd ../engine
-./liquibase-4.3.1/liquibase --diffTypes=tables,functions,views,columns,indexes,foreignkeys,primarykeys,uniqueconstraints,data,storedprocedure,triggers,sequences --changeLogFile="../data/backup_restore/cl.masterbackup.xml" --dataOutputDirectory="../data/backup_restore" generateChangeLog
+. ../engine/environment.sh
+
+if [ -f "$LIQDB_BACKUP_CHANGELOG_FILE" ]; then
+    rm "$LIQDB_BACKUP_CHANGELOG_FILE"
+fi
+
+exe="$LIQDB_EXE"
+exe="$exe --diffTypes=tables,functions,views,columns,indexes,foreignkeys,primarykeys,uniqueconstraints,data,storedprocedure,triggers,sequences"
+exe="$exe --changeLogFile=$LIQDB_BACKUP_CHANGELOG_FILE"
+exe="$exe --dataOutputDirectory=$LIQDB_BACKUP_DATA_DIR"
+exe="$exe generateChangeLog"
+
+eval "$exe"
