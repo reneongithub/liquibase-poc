@@ -1,5 +1,10 @@
 #!/bin/sh
 
 . ../engine/environment.sh
-cd ../engine
-./liquibase-4.3.1/liquibase --changeLogFile="../data/changelogs/cl.restorecollection.xml" update
+
+exe="$LIQDB_EXE"
+exe="$exe --changeLogFile=$LIQDB_RESTORE_COLLECTION_FILE"
+exe="$exe update"
+
+# echo "$exe"
+eval "$exe"

@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
-    <changeSet author="rene (generated)" id="1615475636046-1">
+    <changeSet author="rene (generated)" id="1615493615220-1">
         <createTable tableName="department">
             <column autoIncrement="true" name="id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -11,7 +11,7 @@
             <column defaultValueBoolean="true" name="active" type="BIT(1)"/>
         </createTable>
     </changeSet>
-    <changeSet author="rene (generated)" id="1615475636046-2">
+    <changeSet author="rene (generated)" id="1615493615220-2">
         <createTable tableName="employee">
             <column autoIncrement="true" name="id" type="INT">
                 <constraints nullable="false" primaryKey="true"/>
@@ -22,29 +22,29 @@
             <column name="department_id" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet author="rene (generated)" id="1615475636046-3">
-        <loadData commentLineStartsWith="#" encoding="UTF-8" file="/home/rene/development/liquibase/liquibase-poc/data/backup_restore//department.csv" quotchar="&quot;" separator="," tableName="department">
+    <changeSet author="rene (generated)" id="1615493615220-3">
+        <loadData commentLineStartsWith="#" encoding="UTF-8" file="../data/backup_restore//department.csv" quotchar="&quot;" separator="," tableName="department">
             <column header="id" name="id" type="NUMERIC"/>
             <column header="name" name="name" type="STRING"/>
             <column header="active" name="active" type="BOOLEAN"/>
         </loadData>
     </changeSet>
-    <changeSet author="rene (generated)" id="1615475636046-4">
-        <loadData commentLineStartsWith="#" encoding="UTF-8" file="/home/rene/development/liquibase/liquibase-poc/data/backup_restore//employee.csv" quotchar="&quot;" separator="," tableName="employee">
+    <changeSet author="rene (generated)" id="1615493615220-4">
+        <loadData commentLineStartsWith="#" encoding="UTF-8" file="../data/backup_restore//employee.csv" quotchar="&quot;" separator="," tableName="employee">
             <column header="id" name="id" type="NUMERIC"/>
             <column header="name" name="name" type="STRING"/>
             <column header="department_id" name="department_id" type="NUMERIC"/>
         </loadData>
     </changeSet>
-    <changeSet author="rene (generated)" id="1615475636046-5">
+    <changeSet author="rene (generated)" id="1615493615220-5">
         <createIndex indexName="fk_employee_department_idx" tableName="employee">
             <column name="department_id"/>
         </createIndex>
     </changeSet>
-    <changeSet author="rene (generated)" id="1615475636046-6">
+    <changeSet author="rene (generated)" id="1615493615220-6">
         <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="employee" constraintName="fk_employee_department" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="SET NULL" referencedColumnNames="id" referencedTableName="department" validate="true"/>
     </changeSet>
-    <changeSet author="rene (generated)" id="1615475636046-7">
+    <changeSet author="rene (generated)" id="1615493615220-7">
         <createView fullDefinition="false" remarks="VIEW" viewName="count_deps">select count(0) AS `count(*)` from `liquidbtest`.`department`</createView>
     </changeSet>
 </databaseChangeLog>

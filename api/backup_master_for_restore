@@ -12,4 +12,6 @@ exe="$exe --changeLogFile=$LIQDB_BACKUP_CHANGELOG_FILE"
 exe="$exe --dataOutputDirectory=$LIQDB_BACKUP_DATA_DIR"
 exe="$exe generateChangeLog"
 
+
+echo "$exe"
 eval "$exe"

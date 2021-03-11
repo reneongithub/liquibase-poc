@@ -7,4 +7,8 @@
 	<include file="../data/changelogs/cl.foreignkeys.xml"/>
 	<include file="../data/changelogs/cl.views.xml"/>
 
+	<include file="../data/changelogs/cl.functions.xml"/>
+	<include file="../data/changelogs/cl.procedures.xml"/>
+	<include file="../data/changelogs/cl.triggers.xml"/>
+
 </databaseChangeLog>
