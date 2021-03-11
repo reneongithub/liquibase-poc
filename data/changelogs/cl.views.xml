@@ -1,7 +1,8 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
-    <changeSet author="rene (generated)" id="1615364981890-7">
-        <createView fullDefinition="false" remarks="VIEW" viewName="count_deps">select count(0) AS `count(*)` from `liquidbtest`.`department`</createView>
+
+    <changeSet author="rene (generated)" id="1615500849382-15">
+        <createView fullDefinition="false" remarks="VIEW" viewName="employee_info_list">select `emp`.`id` AS `emp_id`,`pers`.`last_name` AS `last_name`,`pers`.`first_name` AS `first_name`,`pers`.`gender` AS `gender`,`dep`.`id` AS `dep_id`,`dep`.`name` AS `dep_name`,`dep`.`active` AS `is_dep_active`,`sal`.`id` AS `sal_id`,`sal`.`amount_per_year` AS `sal_amount` from (((`liquidbtest`.`employee` `emp` left join `liquidbtest`.`person` `pers` on((`emp`.`person_id` = `pers`.`id`))) left join `liquidbtest`.`department` `dep` on((`emp`.`department_id` = `dep`.`id`))) left join `liquidbtest`.`salary` `sal` on((`emp`.`salary_id` = `sal`.`id`)))</createView>
     </changeSet>
 
     <!-- from now on use view-x upcounting as id -->
