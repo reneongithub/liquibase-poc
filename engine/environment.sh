@@ -1,8 +1,10 @@
 #!/bin/sh
 
-echo ++++++++++++++++++++ source envs +++++++++++++++++++++++++++++
+echo "############### source liquibase environment ################"
 cd ..
 export LIQDB_ROOT_DIR
+export LIQDB_PROP_FILE
+export LIQDB_DEF_PROP_FILE
 export LIQDB_EXE
 export LIQDB_BACKUP_DATA_DIR
 export LIQDB_BACKUP_CHANGELOG_FILE
@@ -20,6 +22,9 @@ export LIQDB_CL_TRIGGERS_FILE
 
 LIQDB_ROOT_DIR="$(pwd)"
 LIQDB_EXE="$LIQDB_ROOT_DIR/engine/liquibase-4.3.1/liquibase"
+LIQDB_PROP_FILE="$LIQDB_ROOT_DIR/engine/liquibase.properties"
+LIQDB_DEF_PROP_FILE="$LIQDB_ROOT_DIR/engine/liquibase.properties.template"
+
 LIQDB_BACKUP_DATA_DIR="../data/backup_restore/"
 LIQDB_BACKUP_CHANGELOG_FILE="$LIQDB_ROOT_DIR/data/backup_restore/cl.masterbackup.xml"
 LIQDB_RESTORE_COLLECTION_FILE="../data/changelogs/cl.restorecollection.xml"
