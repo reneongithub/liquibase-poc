@@ -1,13 +1,11 @@
 #!/bin/sh
 
-
 . ../engine/environment.sh
 
 file="$LIQDB_PROP_FILE"
-
 if [ ! -f "$file" ]
 then
-  echo "Propery file not found. Create new property file from template."
+  echo "Property file not found. Create new property file from template."
   eval "cp $LIQDB_DEF_PROP_FILE $file"
 fi
 
@@ -18,35 +16,35 @@ done < $file
 
 in=""
 echo ""
-echo "Enter the database url."
+echo "Enter database url."
 echo "Leave free to use stored value: $url"
 echo -n "value: "
 read in
 if [ ! -z "$in" ]; then url=$in
 fi
 
-echo "Enter the jdbc driver."
+echo "Enter jdbc driver."
 echo "Leave free to use stored value: $driver"
 echo -n "value: "
 read in
 if [ ! -z "$in" ]; then driver=$in
 fi
 
-echo "Enter the jdbc driver file."
+echo "Enter jdbc driver file."
 echo "Leave free to use stored value: $classpath"
 echo -n "value: "
 read in
 if [ ! -z "$in" ]; then classpath=$in
 fi
 
-echo "Enter the database username."
+echo "Enter database username."
 echo "Leave free to use stored value: $username"
 echo -n "value: "
 read in
 if [ ! -z "$in" ]; then username=$in
 fi
 
-echo "Enter the database user password."
+echo "Enter database user password."
 echo "Leave free to use stored value: $password"
 echo -n "value: "
 read in
@@ -54,7 +52,7 @@ if [ ! -z "$in" ]; then password=$in
 fi
 
 echo ""
-echo "Check your confugarion"
+echo "Check your configuration"
 echo "url : $url"
 echo "driver : $driver"
 echo "classpath : $classpath"
@@ -65,7 +63,7 @@ echo -n "Enter [y] to save: "
 read in
 if [ ! "$in" = "y" ];
     then echo "exited configuration"
-    exit 1
+    exit 0
 fi
 
 echo "save config"
